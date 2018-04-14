@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/common/Header';
+import './index.css'
 
 const App = () => {
     const title = 'React Coin';
     return (
         <div>
-            <Header/>
+            <Header/> 
             <h1>{title}</h1>
             <p>Up to date crypto currency financial data</p>
         </div>
