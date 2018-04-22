@@ -3,6 +3,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
 import Search from './Search';
+import Menu from './Menu';
 
 const containerStyle = {
     fontSize: '40px'
@@ -16,6 +17,7 @@ const Header = () => {
             </Link>
 
             <Search />
+            <Menu />
         </div>
     );
 }
