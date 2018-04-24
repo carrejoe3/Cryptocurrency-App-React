@@ -3,6 +3,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
 import Search from './Search';
+import Favourites from './Favourites';
 import Menu from './Menu';
 
 const Header = () => {
@@ -14,6 +15,7 @@ const Header = () => {
 
             <Search />
             <Menu />
+            <Favourites />
         </div>
     );
 }
