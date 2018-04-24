@@ -1,5 +1,6 @@
 import React from 'react';
 import './Menu.css';
+import Sidebar from './Sidebar';
 
 class Menu extends React.Component {
 
@@ -14,16 +15,23 @@ class Menu extends React.Component {
     }
 
     toggleMenu() {
-        let displayState = this.state.showHideSidenav == "closed"? "open": "closed";
+        let displayState = this.state.showHideSidenav === "closed"? "open": "closed";
         this.setState({ showHideSidenav: displayState});
+    };
+
+    toggleSidebar(props) {
+        alert('sidebar toggled');
     };
 
     render() {
         return (
-            <div id="nav-icon1" onClick={() => this.toggleMenu()} className={this.state.showHideSidenav}>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div>
+                <div id="nav-icon1" onClick={() => this.toggleMenu()} className={this.state.showHideSidenav}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <Sidebar showHideSidenav={this.state.showHideSidenav}/>
             </div>
         );
     }

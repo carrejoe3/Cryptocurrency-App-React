@@ -1,0 +1,16 @@
+.sidebarContainer {
+    position: absolute;
+    background-color: #1f364d;
+    right: 0;
+    top: 115px;
+}
+
+.open {
+    height: 100%;
+    width: 200px;
+}
+
+.closed {
+    height: 0;
+    width: 0;
+}

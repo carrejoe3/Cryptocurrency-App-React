@@ -69,7 +69,7 @@ class List extends React.Component {
 
     //only render error message if error was occured while fetching data
     if (error) {
-        return <div className="error">{error}</div>
+      return <div className="error">{error}</div>
     }
 
     return (
