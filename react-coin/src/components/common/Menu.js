@@ -19,10 +19,6 @@ class Menu extends React.Component {
         this.setState({ showHideSidenav: displayState});
     };
 
-    toggleSidebar(props) {
-        alert('sidebar toggled');
-    };
-
     render() {
         return (
             <div>
