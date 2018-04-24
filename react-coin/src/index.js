@@ -8,7 +8,6 @@ import Detail from './components/detail/Detail';
 import './index.css';
 
 const App = () => {
-    const title = 'React Coin';
     return (
         <BrowserRouter>
             <div>
