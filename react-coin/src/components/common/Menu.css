@@ -12,6 +12,7 @@
     -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     cursor: pointer;
+    display: none;
 }
 
 #nav-icon1 span {
@@ -64,4 +65,10 @@
     -moz-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
+}
+
+@media (max-width: 700px) {
+    #nav-icon1 {
+        display: block;
+    }
 }

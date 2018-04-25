@@ -8,8 +8,10 @@
 
 .open {
     width: 200px;
+    display: block;
 }
 
 .closed {
     width: 0;
+    display: none;
 }

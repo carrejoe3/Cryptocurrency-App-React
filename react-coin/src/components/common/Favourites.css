@@ -3,3 +3,9 @@
     margin-right: 20px;
     opacity: 0.8;
 }
+
+@media (max-width: 700px) {
+    .favouritesBtn {
+        display: none;
+    }
+}
