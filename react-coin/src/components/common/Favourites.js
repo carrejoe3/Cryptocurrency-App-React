@@ -2,12 +2,10 @@ import React from 'react';
 import './Favourites.css';
 import favIcon from './favourites.png';
 
-class Favourites extends React.Component {
-    render() {
-        return(
-            <img className="favouritesBtn" src={favIcon} />
-        );
-    }
-} 
+const Favourites = ({onClick}) => {
+    return(
+        <img onClick={onClick} className="favouritesBtn" src={favIcon} alt="Favourites" />
+    );
+}
 
 export default Favourites;

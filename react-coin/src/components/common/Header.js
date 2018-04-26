@@ -3,7 +3,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import logo from './logo.png';
 import Search from './Search';
-import Favourites from './Favourites';
+import FavouritesContainer from './FavouritesContainer';
 import Menu from './Menu';
 
 const Header = () => {
@@ -15,7 +15,7 @@ const Header = () => {
 
             <Search />
             <Menu />
-            <Favourites />
+            <FavouritesContainer />
         </div>
     );
 }
