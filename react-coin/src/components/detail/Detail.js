@@ -3,6 +3,7 @@ import { API_URL } from '../../config';
 import Loading from '../common/Loading';
 import { handleResponse, renderChangePercent } from '../../helpers';
 import './Detail.css';
+import favIcon from '../common/favourites.png';
 
 class Detail extends React.Component {
     constructor() {
@@ -30,6 +31,10 @@ class Detail extends React.Component {
 
             this.fetchCurrency(newCurrencyId);
         }
+    }
+
+    favouriteToggle(id) {
+        localStorage.setItem('favourites', id);
     }
 
     fetchCurrency(currencyId) {
@@ -92,6 +97,9 @@ class Detail extends React.Component {
                     <div className="Detail-item">
                           <span className="Detail-title">Total supply</span>
                           {currency.totalSupply}
+                    </div>
+                    <div className="Detail-item">
+                          <img src={favIcon} onClick={() => this.favouriteToggle(currency.id)}/>
                     </div>
                 </div>
             </div>
