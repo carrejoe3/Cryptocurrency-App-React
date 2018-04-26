@@ -34,7 +34,15 @@ class Detail extends React.Component {
     }
 
     favouriteToggle(id) {
-        localStorage.setItem('favourites', id);
+        var favourites = [];
+        // Retrieve favourites if they exist in local storage
+        if (null !== localStorage.getItem('favourites')) {
+            favourites.push(JSON.parse(localStorage.getItem('favourites')));
+        }   
+        // Add new id to array
+        favourites.push(id);
+
+        localStorage.setItem('favourites', JSON.stringify(favourites));
     }
 
     fetchCurrency(currencyId) {
