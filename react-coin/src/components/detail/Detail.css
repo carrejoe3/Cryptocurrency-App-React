@@ -25,6 +25,10 @@
   margin-bottom: 50px;
 }
 
+.Detail-item.alignLeft {
+  text-align: center;
+}
+
 .Detail-value {
   border-radius: 20px;
   background-color: #1f364d;
@@ -44,4 +48,10 @@
 .Detail-dollar {
   color: #9cb3c9;
   margin-right: 6px;
+}
+
+.favIcon {
+  opacity: .8;
+  width: 30px;
+  cursor: pointer;
 }
