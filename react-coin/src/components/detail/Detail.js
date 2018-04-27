@@ -38,9 +38,19 @@ class Detail extends React.Component {
         // Retrieve favourites if they exist in local storage
         if (null !== localStorage.getItem('favourites')) {
             favourites.push(JSON.parse(localStorage.getItem('favourites')));
-        }   
-        // Add new id to array
-        favourites.push(id);
+
+            // If already favourited, remove from array
+            if (JSON.parse(localStorage.getItem('favourites')).includes(id)) {
+                console.log('already favourited');
+                let index = favourites.indexOf(id);
+                if (index !== -1) {
+                    favourites.splice(index, 1);
+                }
+            } else {
+                // Add new id to array
+                favourites.push(id);
+            }
+        }
 
         localStorage.setItem('favourites', JSON.stringify(favourites));
     }
@@ -106,8 +116,8 @@ class Detail extends React.Component {
                           <span className="Detail-title">Total supply</span>
                           {currency.totalSupply}
                     </div>
-                    <div className="Detail-item">
-                          <img src={favIcon} onClick={() => this.favouriteToggle(currency.id)}/>
+                    <div className="Detail-item alignLeft">
+                          <img className="favIcon" alt="Favourite" src={favIcon} onClick={() => this.favouriteToggle(currency.id)}/>
                     </div>
                 </div>
             </div>
