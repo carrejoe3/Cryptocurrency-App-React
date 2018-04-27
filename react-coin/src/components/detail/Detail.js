@@ -34,24 +34,19 @@ class Detail extends React.Component {
     }
 
     favouriteToggle(id) {
-        var favourites = [];
-        // Retrieve favourites if they exist in local storage
-        if (null !== localStorage.getItem('favourites')) {
-            favourites.push(JSON.parse(localStorage.getItem('favourites')));
-
-            // If already favourited, remove from array
-            if (JSON.parse(localStorage.getItem('favourites')).includes(id)) {
-                console.log('already favourited');
-                let index = favourites.indexOf(id);
-                if (index !== -1) {
-                    favourites.splice(index, 1);
-                }
-            } else {
-                // Add new id to array
-                favourites.push(id);
+        // Return favourites from local storage, or return empty array if it doesnt exist
+        var favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+        // If already favourited, remove from array
+        if (favourites.includes(id)) {
+            console.log('already favourited');
+            let index = favourites.indexOf(id);
+            if (index !== -1) {
+                favourites.splice(index, 1);
             }
+        } else {
+            // Add new id to array
+            favourites.push(id);
         }
-
         localStorage.setItem('favourites', JSON.stringify(favourites));
     }
 
