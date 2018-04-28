@@ -21,10 +21,10 @@ class List extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchCurrencies();
+    this.fetchCurrencies(true);
   }
 
-  fetchCurrencies() {
+  fetchCurrencies(filter) {
     this.setState({ loading: true });
 
     const { page } = this.state;
@@ -47,6 +47,10 @@ class List extends React.Component {
         });
         console.log("Error", error);
       });
+      if (filter === true) {
+        const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+
+      }
   }
 
   handlePaginationClick(direction) {

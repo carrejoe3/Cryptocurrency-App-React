@@ -35,10 +35,9 @@ class Detail extends React.Component {
 
     favouriteToggle(id) {
         // Return favourites from local storage, or return empty array if it doesnt exist
-        var favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+        let favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
         // If already favourited, remove from array
         if (favourites.includes(id)) {
-            console.log('already favourited');
             let index = favourites.indexOf(id);
             if (index !== -1) {
                 favourites.splice(index, 1);
