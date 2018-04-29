@@ -34,11 +34,43 @@ class List extends React.Component {
       .then(data => {
         const { currencies, totalPages } = data;
 
-        this.setState({
-          currencies,
-          totalPages,
-          loading: false
-        });
+        if (filter === true) {
+          // Get favourites from local storage
+          const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+          // In future, message to user telling them they dont have any favourites 
+          if (favourites.length === 0) {
+            console.log('no favourites');
+
+            this.setState({
+              totalPages,
+              loading: false
+            });
+          } else {
+            let favouritesData = [];
+            // Loop through currencies object and favourites array
+            for (let i = 0; i < currencies.length; i++) {
+              for (let j in favourites) {
+                // If currency id matches favourite id, push to array
+                if (currencies[i].id === favourites[j]) {
+                  favouritesData.push(currencies[i]);
+
+                  this.setState({
+                    currencies: favouritesData,
+                    totalPages,
+                    loading: false
+                  });
+                }
+              }
+            }
+          }
+        // Otherwise return full list
+        } else {
+          this.setState({
+            currencies,
+            totalPages,
+            loading: false
+          });
+        }
       })
       .catch(error => {
         this.setState({
@@ -47,10 +79,6 @@ class List extends React.Component {
         });
         console.log("Error", error);
       });
-      if (filter === true) {
-        const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
-
-      }
   }
 
   handlePaginationClick(direction) {
